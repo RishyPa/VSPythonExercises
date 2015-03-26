@@ -1,0 +1,84 @@
+class List:
+    def __init__(self):
+        self.element = None
+        self.next = None
+
+# ?¨²??????¡À¨ª
+def MakeEmpty(list):
+    list = List()
+    return list
+
+# ??????¡À¨ª??¡¤?????
+def IsEmpty(list):
+    return list.next == None
+
+# ??????????¡¤???¡Á??¨®????????
+def IsLast(position, list):
+    return position.next == None
+
+# ?¨¦??????????element????????????¡¤???????????¡¤??¨°¡¤???None
+def Find(element, list):
+    positionList = list
+    while(positionList != None and 
+          positionList.element != element):
+        positionList = positionList.next
+    return positionList
+
+# ?¨¦????????????element????????????¡¤???????????¡¤??¨°¡¤???None
+def FindPrevious(element, list):
+    positionList = list
+    while(positionList.next != None and 
+          positionList.next.element != element):
+        positionList = positionList.next
+    return positionList
+
+# ????element?¨´????????
+def Delete(element, list):
+    positionList = FindPrevious(element, list)
+
+    if IsLast(positionList, list) != True:
+        tempList = positionList.next
+        posisionList.next = tempList.next
+        del tempList
+
+# ??????element??????position?¨®
+def Insert(element, list, position):
+    tempList = List()
+    tempList.element = element
+    tempList.next = position.next
+    position.next = tempList
+
+# ????????¡À¨ª
+def DeleteList(list):
+    positionList = list
+    while(positionList.next != None):
+        tempList = positionList
+        positionList = positionList.next
+        del tempList
+
+# ¡¤????¡¤????
+def Header(list):
+    return list
+
+# ¡¤?????????????
+def First(list):
+    return list.next
+
+# ¡¤???position?¨®??????????
+def Advance(position):
+    if postion != None:
+        return position.next
+    return None
+
+# ¡¤???position????
+def Retrieve(position):
+    if position != None:
+        return position.element
+    return None
+
+
+list = List()
+Insert(1, list, Header(list))
+print list.next.element
+Delete(1, list)
+print list.next
