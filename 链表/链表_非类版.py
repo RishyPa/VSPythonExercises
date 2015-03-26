@@ -18,6 +18,7 @@ def IsLast(position, list):
 
 # To find the value of element node.
 def Find(element, list):
+    positionList = List()
     positionList = list
     while(positionList != None and 
           positionList.element != element):
@@ -26,6 +27,7 @@ def Find(element, list):
 
 # To find the value of element previous node.
 def FindPrevious(element, list):
+    positionList = List()
     positionList = list
     while(positionList.next != None and 
           positionList.next.element != element):
@@ -52,8 +54,10 @@ def Insert(element, list, position):
 
 # Delete all node.
 def DeleteList(list):
+    positionList = List()
     positionList = list
     while(positionList.next != None):
+        tempList = List()
         tempList = positionList
         positionList = positionList.next
         del tempList
