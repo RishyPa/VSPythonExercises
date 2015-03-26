@@ -3,69 +3,75 @@ class List:
         self.element = None
         self.next = None
 
-    # ??????¡À¨ª??¡¤?????
+    # Judge whether the list is empty.
     def IsEmpty(self):
         return self.next == None
 
-    # ??????????¡¤???¡Á??¨®????????
+    # Judge whether the position is last.
     def IsLast(self, position):
         return position.next == None
 
-    # ?¨¦??????????element????????????¡¤???????????¡¤??¨°¡¤???None
+    # To find the value of element node.
     def Find(self, element):
+        positionList = List()
         positionList = self
         while(positionList != None and 
               positionList.element != element):
             positionList = positionList.next
         return positionList
 
-    # ?¨¦????????????element????????????¡¤???????????¡¤??¨°¡¤???None
+    # To find the value of element previous node.
     def FindPrevious(self, element):
+        positionList = List()
         positionList = self
         while(positionList.next != None and 
               positionList.next.element != element):
             positionList = positionList.next
         return positionList
 
-    # ????element?¨´????????
+    # Delete the value of element node.
     def Delete(self, element):
+        positionList = List()
         positionList = FindPrevious(element, self)
 
         if IsLast(positionList, self) != True:
+            tempList = List()
             tempList = positionList.next
-            posisionList.next = tempList.next
+            positionList.next = tempList.next
             del tempList
 
-    # ??????element??????position?¨®
+    # Insert into after position of element.
     def Insert(self ,element, position):
         tempList = List()
         tempList.element = element
         tempList.next = position.next
         position.next = tempList
 
-    # ????????¡À¨ª
+    # Delete all node.
     def DeleteList(self):
+        positionList = List()
         positionList = self
         while(positionList.next != None):
+            tempList = List()
             tempList = positionList
             positionList = positionList.next
             del tempList
 
-    # ¡¤????¡¤????
+    # Get header.
     def Header(self):
         return self
 
-    # ¡¤?????????????
+    # Get the First node.
     def First(self):
         return self.next
 
-    # ¡¤???position?¨®??????????
+    # Get next of position.
     def Advance(position):
         if postion != None:
             return position.next
         return None
 
-    # ¡¤???position????
+    # Get next value of position.
     def Retrieve(position):
         if position != None:
             return position.element
