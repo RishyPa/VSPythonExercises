@@ -32,9 +32,9 @@ class List:
     # Delete the value of element node.
     def Delete(self, element):
         positionList = List()
-        positionList = FindPrevious(element, self)
+        positionList = self.FindPrevious(element)
 
-        if IsLast(positionList, self) != True:
+        if self.IsLast(positionList) != True:
             tempList = List()
             tempList = positionList.next
             positionList.next = tempList.next
@@ -79,6 +79,10 @@ class List:
 
 list = List()
 list.Insert(1, list.Header())
-
 print list.next.element
-
+position = list.Find(1)
+print position.element
+position = list.FindPrevious(1)
+print position.next.element
+list.Delete(1)
+print list.next

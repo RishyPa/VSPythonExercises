@@ -88,3 +88,13 @@ Insert(1, list, Header(list))
 print list.next.element
 Delete(1, list)
 print list.next
+
+list = List()
+Insert(1, list, Header(list))
+print list.next.element
+position = Find(1, list)
+print position.element
+position = FindPrevious(1, list)
+print position.next.element
+Delete(1, list)
+print list.next
